@@ -1,0 +1,51 @@
+<html>
+<head>
+        
+        <link rel="stylesheet" href="/static/css/bootstrap.css">
+        <link rel="stylesheet" href="/static/css/bootly.css">
+        
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script type="text/javascript" src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+      </head>
+
+<body>
+<a href="#" class="btn" id="openBtn" >Open modal</a>
+
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal">×</button>
+			<h3>Dialog</h3>
+	</div>
+	<div class="modal-body">
+      <iframe src="" style="zoom:0.60" width="99.6%" height="250" frameborder="0"></iframe>
+	</div>
+	<div class="modal-footer">
+		<button class="btn" data-dismiss="modal">OK</button>
+	</div>
+</div>
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+	
+	var frameSrc = "http://www.walletone.com/ru/wallet/"
+	$('#myModal').on('show', function () {
+    	console.log("myModal showed")
+        $('iframe').attr("src",frameSrc);
+      
+	});  
+
+	$('#openBtn').click(function(){
+		console.log("openBtn click")
+		$('#myModal').modal({show:true})
+    console.log("after myModal.show()")
+    });
+      
+
+	console.log("document ready")
+});
+
+</script>
+
+</body>
+</html>

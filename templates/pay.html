@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block header %}
+Оплатить
+{% endblock %}
+{% block content %}
+
+<input type=button class="btn btn-default btn-sm" value="Оплатить" onclick="return btClick();">
+
+<br><br>
+
+<form target="hidden_iframe" id="payment" name="payment" method="post" action="https://www.walletone.com/checkout/default.aspx" enctype="utf-8" hidden>	
+	<input type="hidden" name="WMI_CURRENCY_ID" value="980" />
+	<input type="hidden" name="WMI_DESCRIPTION" value="BASE64:UGF5bWVudCBOby4gSUszNjU0ODMzMg==" />
+	<input type="hidden" name="WMI_EXPIRED_DATE" value="2015-06-14 11:21:09" />
+	<input type="hidden" name="WMI_FAIL_URL" value="https://sci.interkassa.com/paysystem/return/ps/w1/in/merchant2/ci/36548332/act/failure" />
+	<input type="hidden" name="WMI_MERCHANT_ID" value="122651507690" />
+	<input type="hidden" name="WMI_PAYMENT_AMOUNT" value="100.00" />
+	<input type="hidden" name="WMI_PAYMENT_NO" value="1507" />
+	<input type="hidden" name="WMI_PTENABLED" value="WalletOneUAH" />
+	<input type="hidden" name="WMI_SIGNATURE" value="bbCABxrqFNsn3/d/5q8hWA==" />
+	<input type="hidden" name="WMI_SUCCESS_URL" value="https://sci.interkassa.com/paysystem/return/ps/w1/in/merchant2/ci/36548332/act/success" />
+
+    <input type="submit" value="Pay">
+</form>
+
+<br>
+
+<iframe name="hidden_iframe" width="1200" height="800" src=""></iframe>
+
+<script type="text/javascript">
+function btClick() {
+	$("#payment").submit()
+}
+</script>
+
+{% endblock %}

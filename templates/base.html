@@ -1,0 +1,88 @@
+<html>
+      <head>
+        <title>{% block title %}Gringotts{% endblock %}
+        </title>
+        {% block css %}
+        
+        <link rel="stylesheet" href="/static/css/bootstrap.css">
+        <link rel="stylesheet" href="/static/css/font-awesome.css">                             
+        
+        <style>
+      body {
+        padding: 40px;                
+      }
+      input[type="text"], input[type="password"], select[class="form-control"] {
+        width: 250px;
+        height: 30px;
+        padding: 5px;
+        margin-bottom: 5px;
+        margin-top: 5px;        
+        display: inline-block;        
+      }
+      
+      .table {
+        width: 30%;
+        margin-bottom: 20px;
+        border-top: 0px solid #dddddd;  
+      }
+
+      .table > tbody > tr > td {
+        vertical-align: inherit;
+      }     
+      
+      a.item-used-switch > i {
+            font-size: 25px;
+      }
+
+      a.item-used-switch-is-used > i {
+            color:rgb(151, 229, 176);
+            content: "\f05d";
+            font-size: 25px;
+      }
+
+      a.item-used-switch-is-not-used > i {
+            color:rgb(207, 108, 108);
+            content: "\f057";
+            font-size: 25px;
+      }
+
+      input.short-input {
+        width: 100px;
+      }
+
+    </style>    
+    
+
+        {% endblock %}
+        {% block script %}
+        <script src="/static/js/jquery.js"></script>
+        <script src="/static/js/bootstrap.js"></script>
+
+        <script>
+        
+        </script>
+                
+        {% endblock %}
+        
+      </head>
+      <body>                        
+                
+        <div id="msgs">  
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul class="list-unstyled">
+            {% for message in messages %}
+              <li><span class="alert-info">{{ message|safe }}</span></li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}  
+        </div>            
+        
+        <div id="content">{% block content %}{% endblock %}</div>
+        <div id="footer">
+          {% block footer %}
+                
+          {% endblock %}</div>
+      </body>
+</html>
