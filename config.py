@@ -1,0 +1,5 @@
+SECRET_KEY = 'S#crEt_KY!'
+
+CSRF_ENABLED = True
+
+CSRF_SESSION_KEY = ""
